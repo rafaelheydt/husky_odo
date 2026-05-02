@@ -34,7 +34,11 @@ class ExLoc(object):
 
   def __init__(self):
 
-    rospy.Subscriber("/cmd_vel", Twist, self.odo_cb)
+    self.x_odo_husky = 0.0
+    self.y_odo_husky = 0.0
+    self.theta_odo_husky = 0.0
+
+    rospy.Subscriber("/joy_teleop/cmd_vel", Twist, self.odo_cb)
     rospy.Subscriber("/imu/data", Imu, self.imu_cb)   
     rospy.Subscriber("/husky_velocity_controller/odom/", Odometry, self.odo_husky_cb)         
     self.pub_gt = rospy.Publisher('/gt', Point, queue_size=10)
@@ -56,7 +60,7 @@ class ExLoc(object):
             
       state = g_get_state(model_name="husky")
             
-    except Exception(e):
+    except Exception as e:
         
       rospy.logerr('Error on calling service: %s',str(e))
       return
@@ -102,7 +106,7 @@ class ExLoc(object):
   def odo_husky_cb(self, msg):
     self.x_odo_husky = msg.pose.pose.position.x
     self.y_odo_husky = msg.pose.pose.position.y
-    self.theta_odo_husky = msg.pose.pose.orientation.z
+    self.theta_odo_husky = self.get_rotation(msg.pose.pose.orientation)
  
  
  
