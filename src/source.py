@@ -5,7 +5,7 @@ from geometry_msgs.msg  import Twist, Point
 from sensor_msgs.msg  import Imu
 from nav_msgs.msg import Odometry
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
-from math import cos,sin
+from math import atan2, sin, cos
 from gazebo_msgs.srv import GetModelState
 
 
@@ -83,10 +83,11 @@ class ExLoc(object):
     self.v=msg.linear.x
     self.w=msg.angular.z 
     
-    self.x_odo = self.x_odo + self.ts*self.v*cos(self.theta_odo);   
-    self.y_odo = self.y_odo + self.ts*self.v*sin(self.theta_odo);   
-    self.theta_odo = self.theta_odo + self.ts*self.w;       
+    self.x_odo = self.x_odo + self.ts*self.v*cos(self.theta_odo)   
+    self.y_odo = self.y_odo + self.ts*self.v*sin(self.theta_odo)          
+    self.theta_odo = self.theta_odo + self.ts*self.w
     
+    self.theta_odo = atan2(sin(self.theta_odo), cos(self.theta_odo))
     self.pub_odo.publish(Point(self.x_odo, self.y_odo, self.theta_odo))
     
     self.get_gt()

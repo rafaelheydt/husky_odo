@@ -2,6 +2,7 @@ FROM ros:melodic
 
 RUN apt-get update && apt-get install -y \
     git \
+    tmux \
     python-catkin-tools \
     ros-melodic-topic-tools \
     ros-melodic-rqt-plot \
