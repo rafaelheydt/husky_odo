@@ -19,10 +19,9 @@ class ExLoc(object):
   y_odo = 0;
   theta_odo = 0;
   
-  x_husky = 0;
-  y_husky = 0;
-  theta_husky = 0;
-
+  x_odo_husky = 0.0
+  y_odo_husky = 0.0
+  theta_odo_husky = 0.0
 
   x_dr = 0;
   y_dr = 0;
@@ -34,11 +33,8 @@ class ExLoc(object):
 
   def __init__(self):
 
-    self.x_odo_husky = 0.0
-    self.y_odo_husky = 0.0
-    self.theta_odo_husky = 0.0
 
-    rospy.Subscriber("/joy_teleop/cmd_vel", Twist, self.odo_cb)
+    rospy.Subscriber("/cmd_vel", Twist, self.odo_cb)
     rospy.Subscriber("/imu/data", Imu, self.imu_cb)   
     rospy.Subscriber("/husky_velocity_controller/odom/", Odometry, self.odo_husky_cb)         
     self.pub_gt = rospy.Publisher('/gt', Point, queue_size=10)
