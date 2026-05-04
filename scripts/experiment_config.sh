@@ -2,7 +2,7 @@
 WORLD="empty"
 
 # Posição inicial do Husky
-X=0.730655756085
-Y=-0.112224212486
+X=0.0
+Y=0.0
 Z=0.1
-YAW=0.2936
+YAW=3.141592

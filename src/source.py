@@ -36,7 +36,7 @@ class ExLoc(object):
 
     rospy.Subscriber("/cmd_vel", Twist, self.odo_cb)
     rospy.Subscriber("/imu/data", Imu, self.imu_cb)   
-    rospy.Subscriber("/husky_velocity_controller/odom/", Odometry, self.odo_husky_cb)         
+    rospy.Subscriber("/husky_velocity_controller/odom", Odometry, self.odo_husky_cb)         
     self.pub_gt = rospy.Publisher('/gt', Point, queue_size=10)
     self.pub_odo = rospy.Publisher('/odo', Point, queue_size=10)
     self.pub_odo_husky = rospy.Publisher('/odo_husky', Point, queue_size=10)

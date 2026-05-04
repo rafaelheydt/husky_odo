@@ -1,0 +1,8 @@
+Timestamp : 20260504_014125
+Mundo     : empty
+Launch    : husky_gazebo husky_empty_world.launch
+Bag       : /catkin_ws/src/odo_vs_dc/bags/husky_odom_real.bag
+X         : 0.0
+Y         : 0.0
+Z         : 0.1
+YAW       : 3.141592

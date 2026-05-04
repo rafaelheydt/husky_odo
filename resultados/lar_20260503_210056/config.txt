@@ -1,0 +1,8 @@
+Timestamp : 20260503_210056
+Mundo     : lar
+Launch    : lar_gazebo lar_husky.launch
+Bag       : /catkin_ws/src/odo_vs_dc/bags/husky_odom_real.bag
+X         : 0.0
+Y         : 0.0
+Z         : 0.1
+YAW       : 0

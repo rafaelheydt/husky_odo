@@ -1,0 +1,8 @@
+Timestamp : 20260503_195237
+Mundo     : empty
+Launch    : odo_vs_dc empty_husky.launch
+Bag       : /catkin_ws/src/odo_vs_dc/bags/husky_odom_real.bag
+X         : 0.0
+Y         : 0.0
+Z         : 0.1
+YAW       : 3.141592
